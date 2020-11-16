@@ -21,6 +21,7 @@ public class ChatBotClient {
 				ip=rep.split(":")[0];
 				port = rep.split(":")[1];
 			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
 		try {
@@ -35,7 +36,7 @@ public class ChatBotClient {
 					while (true) {
 						System.out.println("Entrer un message:");
 						String rep = clavier.next();
-						if (rep == "quit") {
+						if (rep.equals("quit")) {
 							try {
 								server.close();
 								clavier.close();
