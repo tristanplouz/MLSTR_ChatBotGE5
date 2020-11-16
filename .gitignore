@@ -34,8 +34,11 @@ tmp/**/*
 *.tmp
 *.bak
 *.swp
+*.iml
 *~.nib
 local.properties
 .classpath
 .settings/
 .loadpath
+.target/
+*/.idea/
