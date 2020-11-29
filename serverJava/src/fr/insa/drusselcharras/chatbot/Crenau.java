@@ -2,7 +2,7 @@ package fr.insa.drusselcharras.chatbot;
 
 import java.time.LocalDateTime;
 
-public class Crenaux {
+public class Crenau {
 	public LocalDateTime start;
 	public LocalDateTime end;
 	public Machine machine;
@@ -10,13 +10,13 @@ public class Crenaux {
 	public String info;
 
 	/**
-	 * Constructeur de la class Crénaux
+	 * Constructeur de la class Crenau
 	 * 
 	 * @param start Date de début
 	 * @param end   Date de fin
 	 * @param user  Nom de l'utilisateur pour le créneau
 	 */
-	public Crenaux(LocalDateTime start, LocalDateTime end, String user) {
+	public Crenau(LocalDateTime start, LocalDateTime end, String user) {
 		if (start.isBefore(end)) {
 			this.start = start;
 			this.end = end;
@@ -28,26 +28,21 @@ public class Crenaux {
 	}
 
 	/**
-	 * Second constructeur de la class Crénaux
-	 * 
-	 * @param start Date de début, la date de fin est 30min plus tard
-	 * @param user  Nom de l'utilisateur pour le créneau
+	 * Constructeur de la class Crenau
+	 *
+	 * @param start Date de début
+	 * @param end   Date de fin
 	 */
-	public Crenaux(LocalDateTime start, String user) {
-		this.start = start;
-		this.end = start.plusMinutes(30);
-		this.user = user;
+	public Crenau(LocalDateTime start, LocalDateTime end) {
+		if (start.isBefore(end)) {
+			this.start = start;
+			this.end = end;
+		} else {
+			this.end = start;
+			this.start = end;
+		}
+		this.user = "unknown";
 	}
-
-	/**
-	 * Setter de l'attribut info
-	 * 
-	 * @param info Information sur le créneau
-	 */
-	public void setInfo(String info) {
-		this.info = info;
-	}
-
 	/**
 	 * Méthode ToString de la class
 	 */

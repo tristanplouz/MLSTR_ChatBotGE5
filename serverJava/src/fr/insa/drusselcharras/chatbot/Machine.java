@@ -1,14 +1,14 @@
 package fr.insa.drusselcharras.chatbot;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Machine {
 	public String name;
-	private ArrayList<Crenaux> usedTime = new ArrayList<Crenaux>();
+	private List<Crenau> usedTime = new ArrayList<>();
 
 	/**
-	 * Construteur de la class machine
-	 * 
+	 * Constructeur de la class machine
 	 * @param name Nom de la machine
 	 */
 	public Machine(String name) {
@@ -16,14 +16,13 @@ public class Machine {
 	}
 
 	/**
-	 * Méthode pour verifier si le crénaux demandé est libre
-	 * 
-	 * @param potCre Crénaux potentiel demandé
-	 * @return True: si le crénaux est utilisé, False si il est libre
+	 * Méthode pour vérifier si le créneau demandé est libre
+	 * @param potCre Créneau potentiel demandé
+	 * @return True: si le créneau est utilisé, False si il est libre
 	 */
-	public boolean checkCrenaux(Crenaux potCre) {
+	public boolean checkCrenaux(Crenau potCre) {
 		System.out.println(potCre);
-		for (Crenaux usedCrenaux : usedTime) {
+		for (Crenau usedCrenaux : usedTime) {
 			if (usedCrenaux.start.isBefore(potCre.end) && usedCrenaux.end.isAfter(potCre.end)) {
 				System.out.println("pb1 chevAvant");
 				return true;
@@ -44,25 +43,23 @@ public class Machine {
 	}
 
 	/**
-	 * Méthode pour reserver un crénaux
-	 * 
-	 * @param c Le Crénaux à reserver
+	 * Méthode pour réserver un créneaux
+	 * @param c Le Créneaux à réserver
 	 */
-	public void addCrenaux(Crenaux c) {
+	public void addCrenaux(Crenau c) {
 		usedTime.add(c);
 		c.machine = this;
 	}
 
 	/**
-	 * Méthode pour afficher les crénaux utilisés sur la machine
-	 * 
-	 * @return String affichant les crénaux
+	 * Méthode pour afficher les créneaux utilisés sur la machine
+	 * @return String affichant les créneaux
 	 */
 	public String showCrenaux() {
-		String str = "Créneaux de la machine:\n";
+		String str = "\nCréneaux de la machine:\n";
 
-		for (Crenaux crenaux : usedTime) {
-			str += crenaux.toString();
+		for (Crenau crenau : usedTime) {
+			str += crenau.toString();
 			str += "\n";
 		}
 		System.out.println(str);
@@ -70,7 +67,7 @@ public class Machine {
 	}
 
 	/**
-	 * Méthode ToString de la class
+	 * Méthode ToString de la classe
 	 */
 	public String toString() {
 		return this.name;
