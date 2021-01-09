@@ -1,14 +1,18 @@
 package fr.insa.drusselcharras.chatbot;
 
-import java.io.*;
-import java.net.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 import java.util.List;
 
 public class CltProcess implements Runnable {
-    private Socket sock;
+    private final Socket sock;
     private BufferedReader in;
     private PrintWriter out;
-    private Server server;
+    private final Server server;
     private String name = "";
 
     /**
@@ -75,7 +79,6 @@ public class CltProcess implements Runnable {
             switch (rep.category) {
                 case "G":
                     if (prevCat.equals("G")) {
-                        ;
                     } else {
                         anser += "Bonjour, comment allez vous? ";
                     }
@@ -83,29 +86,38 @@ public class CltProcess implements Runnable {
                     break;
                 case "R":
                     if (prevCat.equals("R")) {
-                        ;
                     } else {
                         anser += "Quel créneaux voulez vous? ";
                     }
                     prevCat = "R";
                     break;
                 case "RD":
-                    Crenau c = new Crenau(rep.startTime,rep.endTime,"defaut");
-                    int state = server.machineHdl.bookCrenaux("Défaut",c);
-                    if (state==2){
-                        anser+="Le créneaux est déjà utilisé.";
-                    }else if( state == 0){
-                        anser += "Je vous réserve le créneaux:"+c+ ". ";
+                    Crenau c = new Crenau(rep.startTime, rep.endTime, "Jean Dupont");
+                    int state = server.machineHdl.bookCrenaux("default", c);
+                    if (state == 2) {
+                        anser += "Le créneaux est déjà utilisé.";
+                    } else if (state == 0) {
+                        anser += "Je vous réserve le créneaux:" + c + ". ";
+                    } else if (state == 1) {
+                        anser += "Je ne trouve pas cette machine.";
                     }
                     break;
                 case "P":
                     anser += "Les pâtes c'est très important. ";
                     break;
+                case "I":
+                    anser += "Je m'appelle Chatbot. Je sers à réserver des créneaux sur des machines. Et toi comment t'appelles tu?";
+                    break;
+                case "N":
+                    this.name = rep.name;
+                    Thread.currentThread().setName(this.name);
+                    anser += "Enchanté "+this.name;
+                    break;
                 case "C":
-                    anser += "Voici les créneaux déjà réservés:"+server.machineHdl.showAllCrenaux();
+                    anser += "Voici les créneaux déjà réservés:" + server.machineHdl.showAllCrenaux();
                     break;
                 case "FIN":
-                    anser += "Merci de m'avoir utilisé. ";
+                    anser += "Merci de m'avoir utilisé. À très vite.";
                     break;
                 default:
                     anser += "Je n'ai pas compris votre demande. ";

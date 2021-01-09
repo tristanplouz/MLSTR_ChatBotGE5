@@ -1,13 +1,15 @@
 package fr.insa.drusselcharras.chatbot;
 
+import opennlp.tools.dictionary.Dictionary;
 import opennlp.tools.lemmatizer.DictionaryLemmatizer;
 import opennlp.tools.postag.*;
-import opennlp.tools.sentdetect.*;
+import opennlp.tools.sentdetect.SentenceDetectorME;
+import opennlp.tools.sentdetect.SentenceModel;
+import opennlp.tools.sentdetect.SentenceSample;
+import opennlp.tools.sentdetect.SentenceSampleStream;
 import opennlp.tools.tokenize.*;
-import opennlp.tools.util.InputStreamFactory;
-import opennlp.tools.util.ObjectStream;
-import opennlp.tools.util.PlainTextByLineStream;
-import opennlp.tools.util.TrainingParameters;
+import opennlp.tools.tokenize.lang.Factory;
+import opennlp.tools.util.*;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -15,21 +17,23 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  * Classe d’entraînement
  */
 public class NLPTrainer {
-    public String repoTraining ="trainingSet/";
-
+    public String repoTraining = "trainingSet/";
     /**
      * Fonction d’entraînement du détecteur de phrases
-     * @return  Le détecteur de phrase
+     *
+     * @return Le détecteur de phrase
      */
     public SentenceDetectorME sentenceTraining() {
         System.out.println("Sentence Training Started...");
-        InputStreamFactory isf = () -> new FileInputStream(repoTraining+"fr-sent.train");
+        InputStreamFactory isf = () -> new FileInputStream(repoTraining + "fr-sent.train");
         ObjectStream<String> lineStream = null;
         try {
             lineStream = new PlainTextByLineStream(isf, StandardCharsets.UTF_8);
@@ -59,11 +63,12 @@ public class NLPTrainer {
 
     /**
      * Fonction d’entraînement du détecteur de tokens
-     * @return  Le détecteur de tokens
+     *
+     * @return Le détecteur de tokens
      */
     public Tokenizer tokenTraining() {
         System.out.println("Tokenizer Training Started...");
-        InputStreamFactory isf = () -> new FileInputStream(repoTraining+"fr-token.train");
+        InputStreamFactory isf = () -> new FileInputStream(repoTraining + "fr-token.train");
         ObjectStream<String> lineStream = null;
         try {
             lineStream = new PlainTextByLineStream(isf, StandardCharsets.UTF_8);
@@ -77,7 +82,7 @@ public class NLPTrainer {
                     new TokenizerFactory("fr",
                             null,
                             true,
-                            null),
+                            Pattern.compile(Factory.DEFAULT_ALPHANUMERIC)),
                     TrainingParameters.defaultParams());
         } catch (IOException e) {
             e.printStackTrace();
@@ -99,14 +104,15 @@ public class NLPTrainer {
 
     /**
      * Fonction d’entraînement du détecteur de fonction grammaticale
-     * @return  Le détecteur de fonction grammaticale
+     *
+     * @return Le détecteur de fonction grammaticale
      */
     public POSTaggerME posTagTraining() {
         System.out.println("PoS Tag Training Started...");
         POSModel model = null;
 
         try {
-            InputStreamFactory isf = () -> new FileInputStream(repoTraining+"fr-postag.train");
+            InputStreamFactory isf = () -> new FileInputStream(repoTraining + "fr-postag.train");
             ObjectStream<String> lineStream = null;
             try {
                 lineStream = new PlainTextByLineStream(isf, StandardCharsets.UTF_8);
@@ -132,13 +138,15 @@ public class NLPTrainer {
 
     /**
      * Fonction d’entraînement du détecteur de lemme
-     * @return  Le détecteur de lemme
+     *
+     * @return Le détecteur de lemme
      */
     public DictionaryLemmatizer lemmaTraining() {
+        //TODO implémenter la methode ML pour le lemmatizer
         System.out.println("Lemmatiser Training Started...");
         InputStream dictLemmatizer = null;
         try {
-            dictLemmatizer = new FileInputStream(repoTraining+"fr-lemma.train");
+            dictLemmatizer = new FileInputStream(repoTraining + "fr-lemma.train");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -157,28 +165,37 @@ public class NLPTrainer {
     }
 
     /**
-     * @param nbrKeyW   Nombre de mots clé à trouver
-     * @param lines     corpus de données d’entraînement
-     * @return          Liste de mots clés
+     * Méthode de recherche de X mots clés dans le corpus
+     *
+     * @param nbrKeyW Nombre de mots clé à trouver
+     * @param lines   corpus de données d’entraînement
+     * @return Liste de mots clés
      */
     public List<String> findKeyWords(int nbrKeyW, List<List<String>> lines) {
+        //TODO ameliorer la detection des mots clés
         System.out.println("Looking for " + nbrKeyW + " keyword(s) in the corpus...");
         List<String> allW = new ArrayList<>();
         List<Integer> allC = new ArrayList<>();
+        allW.add(lines.get(0).get(0));
+        allC.add(0);
         for (List<String> s : lines) {
             for (String w : s) {
-                allW.add(w);
-                allC.add(1);
+                boolean here = false;
                 for (int i = 0; i < allW.size(); i++) {
                     if (w.equals(allW.get(i))) {
                         allC.set(i, allC.get(i) + 1);
+                        here = true;
                         break;
                     }
+                }
+                if (!here) {
+                    allW.add(w);
+                    allC.add(1);
                 }
             }
         }
         List<String> keyW = new ArrayList<>();
-        for (int i = 0; i < nbrKeyW+1; i++) {
+        for (int i = 0; i < nbrKeyW + 1; i++) {
             int max = 0;
             int imax = 0;
             for (int j = 0; j < allC.size(); j++) {

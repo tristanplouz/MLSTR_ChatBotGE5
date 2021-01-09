@@ -24,7 +24,8 @@ hs_err_pid*
 
 
 *.dia
-
+*.png
+rapport/
 *.pydevproject
 .project
 .metadata

@@ -1,0 +1,154 @@
+G	bonjour
+C	puis-je voir la disponibilité des machines?
+C	où puis-je voir la disponibilité des machines?
+C	je souhaite consulter le calendrier
+C	bonjour, je souhaite consulter le calendrier
+C	est-ce possible de consulter le calendrier ?
+C	puis-je consulter le calendrier?
+C	j'aimerais consulter le calendrier.
+C	consulter le calendrier
+C	consultation du calendrier
+C	voir le calendrier
+C	j'aimerai voir le calendrier
+C	j'aimerai avoir un aperçu du calendrier
+C	avoir un aperçu du calendrier
+C	je voudrais avoir un aperçu du calendrier.
+C	je souhaite voir le calendrier.
+C	je souhaite explorer le calendrier.
+C	je veux aller voir le calendrier.
+C	je souhaite avoir un aperçu du planning.
+C	je souhaite voir le planning.
+C	visionner le calendrier
+C	visionner le planning
+C	voir le planning
+C	consulter le planning
+C	je souhaite consulter le planning
+C	je souhaite regarder le calendrier.
+C	peux-tu me montrer le calendrier?
+C	peux-tu me faire consulter le calendrier?
+C	pourrais-tu me faire voir le calendrier?
+FIN	au revoir
+FIN	aurevoir
+FIN	à plus
+FIN	ciao
+FIN	à bientôt
+FIN	à la revoyure
+FIN	adieu
+FIN	adieux
+FIN	à demain
+FIN	c'était cool, on se tient au courant, bisous !
+FIN	bisous
+FIN	a très vite
+FIN	a la prochaine
+FIN	merci, au revoir
+FIN	merci, aurevoir
+FIN	merci, à plus
+FIN	merci, ciao
+FIN	merci, à bientôt
+FIN	merci bien
+FIN	tchao.
+FIN	merci pour votre aide !
+FIN	à plus dans le bus !
+FIN	merci beaucoup !
+FIN	merci bien !
+G	bonjour!
+G	bonjour, comment allez vous?
+G	bonjour, çà va?
+G	bonjour, comment çà va?
+G	bonjour.
+G	coucou!
+G	coucou, comment allez vous?
+G	coucou, comment çà va?
+G	coucou.
+G	coucou
+G	bonsoir
+G	bonsoir!
+G	bonsoir.
+G	bonsoir, comment allez vous?
+G	bonsoir, çà va?
+G	bonsoir, comment çà va?
+G	salutations
+G	salutations!
+G	salutations.
+G	salut
+G	salut, comment vas-tu ?
+G	comment vas-tu?
+G	bonjour, tu vas bien?
+C	quelles sont les machines disponibles?
+P	bonjour, serait-il possible de manger des pâtes
+P	je souhaite manger des pâtes.
+P	j'aimerais manger des pâtes au pesto.
+P	j'aimerais manger des pâtes au beurre.
+P	je souhaite des pâtes.
+P	je veux manger des pâtes.
+R	je souhaiterai réserver une machine.
+R	serait-il possible de réserver cette machine.
+R	pourrais-je réserver une machine.
+R	j'aimerais bien réserver une machine.
+R	je voudrais réserver une machine.
+R	serait-il possible d'avoir cette machine.
+R	bonjour, je souhaiterai réserver une machine.
+R	bonjour, serait-il possible de réserver cette machine.
+R	bonjour, pourait-je réserver une machine.
+R	coucou, j'aimerais bien réserver une machine.
+R	bonsoir, je voudrais réserver une machine.
+R	bonjour, serait-il possible d'avoir cette machine.
+R	réserver une machine
+R	je veux réserver une machine
+R	réserver des machines
+R	puis-je réserver une machine?
+R	est-il possible de réserver une machine?
+R	puis-je réserver cette machine?
+R	quelle machine puis-je réserver?
+R	quelles machines sont disponibles?
+R	bonjour, quelles machines sont disponibles à la réservation?
+R	bonjour, quelles sont les machines disponibles?
+R	puis-je réserver une machine disponible?
+R	je souhaite réserver une machine disponible.
+R	je souhaiterai volontiers réserver une machine.
+R	je souhaiterai réserver un rendez-vous
+R	serait-il possible de réserver un rendez-vous.
+R	pourrais-je réserver un rendez-vous.
+R	j'aimerais bien réserver un rendez-vous.
+R	je voudrais réserver un rendez-vous.
+R	serait-il possible d'avoir un rendez-vous.
+R	bonjour, je souhaiterai réserver un rendez vous.
+R	est-il possible de réserver un créneau?
+R	je souhaite avoir un créneau.
+R	j'aimerais réserver un créneau.
+R	je veux un créneau.
+R	quels créneaux sont disponibles?
+R	quels sont les créneaux disponibles?
+R	puis-je réserver un créneau?
+RD	je souhaiterai volontiers réserver une machine demain.
+RD	je souhaiterai réserver le prochain créneau.
+RD	je voudrais avoir le prochain rendez-vous.
+RD	je souhaiterai réserver un rendez-vous de 11h à 12h.
+RD	serait-il possible de réserver un rendez-vous de 13h à 14h.
+RD	pourrais-je réserver un rendez-vous demain de 15h à 16h.
+RD	j'aimerais bien réserver un rendez-vous de 17h à 18h.
+RD	je voudrais réserver un rendez-vous de 19h à 20h.
+RD	serait-il possible d'avoir un rendez-vous de 21h à 22h.
+RD	bonjour, je souhaiterai réserver un rendez vous aujourd'hui.
+RD	est-il possible de réserver un créneau de 1h à 2h?
+RD	je souhaite avoir un créneau de 3h à 4h.
+RD	j'aimerais réserver un créneau de 5h à 6h.
+RD	je veux un créneau de 7h à 8h.
+RD	puis-je réserver un créneau de 9h à 10h?
+I	comment vous appellez vous?
+I	qui êtes vous?
+I	je voudrais des informations.
+I	comment vous fonctionnez?
+I	à quoi servez vous?
+I	pourquoi existez vous?
+I	comment tu t'appelles?
+I	comment t'appelles tu?
+I	qui es tu?
+I	je voudrais des informations.
+I	comment tu fonctionnes?
+I	comment fonctionnes tu?
+I	à quoi sers tu?
+I	pourquoi existes tu?
+N	je m'appelle
+N	mon nom est
+N	je suis

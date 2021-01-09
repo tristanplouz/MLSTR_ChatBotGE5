@@ -7,7 +7,7 @@ import java.util.List;
  * Classe de mise en oeuvre de l'algorithme de KNN (K-Nearest neighbors)
  */
 public class KNNMet {
-    private List<KNNDat> workingData = new ArrayList<>(); //jeu de données avec le quel l'algorithme travail
+    private final List<KNNDat> workingData = new ArrayList<>(); //jeu de données avec le quel l'algorithme travail
 
     /**
      * @param lines Corpus de données de référence
@@ -23,7 +23,6 @@ public class KNNMet {
             this.workingData.add(new KNNDat(cat.get(i), d));
 
         }
-        System.out.println(this.workingData);
     }
 
     /**
@@ -44,6 +43,7 @@ public class KNNMet {
 
     /**
      * Méthode afin de catégoriser un élément en utilisant l'algorithme KNN
+     *
      * @param req Représentation vectorielle de l'élément à catégoriser
      * @return Catégorie retrouvée par l'algorithme
      */
@@ -87,9 +87,10 @@ public class KNNMet {
 
     /**
      * Méthode d'application de l'algorithme de KNN
-     * @param req       Représentation vectorielle de la donnée
-     * @param knnLim    Nombre de voisin de l'algorithme.
-     * @return          Les données correspondantes aux voisins détectés
+     *
+     * @param req    Représentation vectorielle de la donnée
+     * @param knnLim Nombre de voisin de l'algorithme.
+     * @return Les données correspondantes aux voisins détectés
      */
     private List<KNNDat> findCategories(double[] req, int knnLim) {
         List<KNNDat> ret = new ArrayList<>();

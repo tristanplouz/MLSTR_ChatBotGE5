@@ -11,13 +11,13 @@ import java.util.List;
  * Classe gérant le serveur Socket
  */
 public class Server {
-    private int port = 12345;
-    private String IP = "localhost";
-    private ServerSocket server = null;
-    private int clientLimit = 5;
-    private List<CltProcess> clients = new ArrayList<>();
     public MachineHandler machineHdl = new MachineHandler();
     public MLHandler mlHandler = new MLHandler();
+    private final int port = 12345;
+    private final String IP = "localhost";
+    private ServerSocket server = null;
+    private final int clientLimit = 5;
+    private final List<CltProcess> clients = new ArrayList<>();
 
     /**
      * Constructeur de la classe Server

@@ -10,8 +10,8 @@ public class KNNDat {
     public double[] num;
 
     /**
-     * @param cat   Catégorie de l'élément
-     * @param num   Représentation vectorielle de l'élément dans la base définie
+     * @param cat Catégorie de l'élément
+     * @param num Représentation vectorielle de l'élément dans la base définie
      **/
     public KNNDat(String cat, double[] num) {
         this.cat = cat;
