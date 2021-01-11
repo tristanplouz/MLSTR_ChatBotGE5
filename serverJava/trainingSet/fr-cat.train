@@ -18,6 +18,7 @@ C	je souhaite explorer le calendrier.
 C	je veux aller voir le calendrier.
 C	je souhaite avoir un aperçu du planning.
 C	je souhaite voir le planning.
+C	je veux voir le planning.
 C	visionner le calendrier
 C	visionner le planning
 C	voir le planning
@@ -135,7 +136,7 @@ RD	je souhaite avoir un créneau de 3h à 4h.
 RD	j'aimerais réserver un créneau de 5h à 6h.
 RD	je veux un créneau de 7h à 8h.
 RD	puis-je réserver un créneau de 9h à 10h?
-I	comment vous appellez vous?
+I	comment vous appelez vous?
 I	qui êtes vous?
 I	je voudrais des informations.
 I	comment vous fonctionnez?

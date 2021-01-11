@@ -92,12 +92,18 @@ public class CltProcess implements Runnable {
                     prevCat = "R";
                     break;
                 case "RD":
-                    Crenau c = new Crenau(rep.startTime, rep.endTime, "Jean Dupont");
+                    Crenau c;
+                    if(this.name=="") {
+                        c = new Crenau(rep.startTime, rep.endTime, "Jean Dupont");
+                    }
+                    else{
+                        c = new Crenau(rep.startTime, rep.endTime, this.name);
+                    }
                     int state = server.machineHdl.bookCrenaux("default", c);
                     if (state == 2) {
-                        anser += "Le créneaux est déjà utilisé.";
+                        anser += "Le créneau est déjà utilisé.";
                     } else if (state == 0) {
-                        anser += "Je vous réserve le créneaux:" + c + ". ";
+                        anser += "Je vous réserve le créneau sur la " + c + ". ";
                     } else if (state == 1) {
                         anser += "Je ne trouve pas cette machine.";
                     }
@@ -111,7 +117,7 @@ public class CltProcess implements Runnable {
                 case "N":
                     this.name = rep.name;
                     Thread.currentThread().setName(this.name);
-                    anser += "Enchanté "+this.name;
+                    anser += "Enchanté "+this.name+". Que souhaitez vous faire?";
                     break;
                 case "C":
                     anser += "Voici les créneaux déjà réservés:" + server.machineHdl.showAllCrenaux();

@@ -61,7 +61,9 @@ public class Machine {
      * @return String affichant les créneaux
      */
     public String showCrenaux() {
-        //TODO si il n'y a aucun créneau
+        if(usedTime.size()==0){
+            return "Aucun créneau réservé pour le moment";
+        }
         String str = "\n";
         for (Crenau crenau : usedTime) {
             str += crenau.toString();

@@ -52,20 +52,20 @@ Merci_UH beaucoup_RB !_PUNCT
 Merci_UH bien_RB !_PUNCT
 bonjour_UH !_PUNCT
 bonjour_UH ,_PUNCT comment_RB allez_V vous_CLS ?_PUNCT
-bonjour_UH ,_PUNCT çà_PD va_V?_PUNCT
-bonjour_UH ,_PUNCT comment_RB çà_PD va_V?
+bonjour_UH ,_PUNCT ça_PD va_V ?_PUNCT
+bonjour_UH ,_PUNCT comment_RB ça_PD va_V ?
 bonjour_UH  ._PUNCT
 coucou_UH !_PUNCT
 coucou_UH ,_PUNCT comment_RB allez_V vous_CLS ?_PUNCT
-coucou_UH ,_PUNCT comment_RB çà_PD va_V?_PUNCT
+coucou_UH ,_PUNCT comment_RB ça_PD va_V ?_PUNCT
 coucou_UH  ._PUNCT
 coucou_UH
 bonsoir_UH
 bonsoir_UH !_PUNCT
 bonsoir_UH  ._PUNCT
 bonsoir_UH ,_PUNCT comment_RB allez_V vous_CLS ?_PUNCT
-bonsoir_UH ,_PUNCT çà_PD va_V?_PUNCT
-bonsoir_UH ,_PUNCT comment_RB çà_PD va_V?_PUNCT
+bonsoir_UH ,_PUNCT çà_PD va_V ?_PUNCT
+bonsoir_UH ,_PUNCT comment_RB çà_PD va_V ?_PUNCT
 salutations_UH
 salutations_UH !_PUNCT
 salutations_UH  ._PUNCT
@@ -132,3 +132,20 @@ je_CLS souhaite_V avoir_V un_D créneau_N de_P 4_CD h_N à_P 3_CD h_N  ._PUNCT
 J'_CLS aimerais_V réserver_V un_D créneau_N de_P 5_CD h_N à_P 6_CD h_N  ._PUNCT
 je_CLS veux_V un_D créneau_N de_P 7_CD h_N à_P 8_CD h_N  ._PUNCT
 puis_V -_SYM je_CLS réserver_V un_D créneau_N de_P 9_CD h_N à_P 10_CD h_N ?_PUNCT
+je_CLS m_D '_SYM appelle_V
+mon_D nom_N est_V
+je_CLS suis_V
+comment_RB vous_CLS appelez_V vous_CLS ?
+qui_RB êtes_V vous_CLS ?
+je_CLS voudrais_V des_D informations_N .
+comment_RB vous_CLS fonctionnez_V ?
+à quoi_RB servez_V vous_CLS ?
+pourquoi_RB existez_V vous_CLS ?
+comment_RB tu_CLS t_CLS '_SYM appelles_V ?
+comment_RB t_CLS '_SYM appelles_V tu_CLS ?_PONCT
+qui_RB es_V tu_CLS ?
+je_CLS voudrais_V des_D informations_N ._PONCT
+comment_RB tu_CLS fonctionnes_V ?_PONCT
+comment_RB fonctionnes_V tu_CLS ?_PONCT
+à quoi_RB sers_V tu_CLS ?_PONCT
+pourquoi_RB existes_V tu_CLS ?_PONCT

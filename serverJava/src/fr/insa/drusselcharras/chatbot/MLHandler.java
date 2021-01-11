@@ -25,7 +25,7 @@ public class MLHandler {
     private final Tokenizer tokenizer;
     private final POSTaggerME tagger;
     private final DictionaryLemmatizer lemmatizer;
-    private final List<String> stopWords = Arrays.asList(".", "?", ",", "!", "'", "je", "tu", "un", "des", "la", "le", "il", "une");
+    private final List<String> stopWords = Arrays.asList(".", "?", ",", "!", "'", "un", "des", "la", "le", "il", "une","les","à","un");
     private final List<String> stopTags = Arrays.asList("PUNCT", "SYM");
     private final List<String> keyWord;
     private final KNNMet KNNHandler;
@@ -42,7 +42,7 @@ public class MLHandler {
         this.tagger = this.trainer.posTagTraining();
         this.lemmatizer = this.trainer.lemmaTraining();
         this.createCorpus();
-        this.keyWord = this.trainer.findKeyWords(80, this.corpus);
+        this.keyWord = this.trainer.findKeyWords(50, this.corpus);
         this.KNNHandler = new KNNMet(this.corpus, this.keyWord, this.cat);
     }
 
@@ -170,9 +170,11 @@ public class MLHandler {
         int s = 0;
         for (int i = 1; i < tk.length; i++) {
             if (tags[i - 1].equals("P") && tags[i].equals("CD")) {
-                for (String kw : tk) {
-                    if (kw.equals("demain")) {
-                        date = date.plusDays(1);
+                if(s==0) {
+                    for (String kw : tk) {
+                        if (kw.equals("demain")) {
+                            date = date.plusDays(1);
+                        }
                     }
                 }
                 //TODO try et renvoyer je n'ai pas compris au lieu de crash

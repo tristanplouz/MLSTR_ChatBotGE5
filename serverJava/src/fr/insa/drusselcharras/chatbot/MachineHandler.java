@@ -47,7 +47,7 @@ public class MachineHandler {
     }
 
     public String showAllCrenaux() {
-        String ret = "";
+        String ret = " ";
         for (Machine machine : machines) {
             ret += machine.showCrenaux() + "\n";
         }

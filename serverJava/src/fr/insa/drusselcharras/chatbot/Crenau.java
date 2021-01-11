@@ -32,9 +32,9 @@ public class Crenau {
      */
     public String toString() {
         String str = "";
-        str += "La machine ";
+        str += "machine ";
         str += this.machine;
-        str += " est utilisée de ";
+        str += " utilisée de ";
         str += this.start;
         str += " à ";
         str += this.end;

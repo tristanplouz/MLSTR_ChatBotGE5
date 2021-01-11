@@ -79,7 +79,11 @@ public class KNNMet {
                     max = cnt.get(i);
                 }
             }
-            return cat.get(imax);
+            if(imax>1.5){
+                return "uncategorized";
+            }else {
+                return cat.get(imax);
+            }
         } else {
             return "uncategorized";
         }

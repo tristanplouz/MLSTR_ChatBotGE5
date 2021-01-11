@@ -33,8 +33,9 @@ public class ChatBotClient {
 			// Thread dédié à l'envoi de message
 			Thread tx = new Thread(new Runnable() {
 				public void run() {
+					System.out.println("Entrer un message:");
 					while (true) {
-						System.out.println("Entrer un message:");
+
 						String rep = clavier.next();
 						if (rep.equals("quit")) {
 							try {
